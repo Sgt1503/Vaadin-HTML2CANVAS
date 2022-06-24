@@ -1,4 +1,4 @@
-package org.vaadin.example.addon;
+package org.vaadin.HTMLtoCANVAS;
 
 import com.vaadin.flow.component.html.testbench.DivElement;
 import org.junit.Assert;

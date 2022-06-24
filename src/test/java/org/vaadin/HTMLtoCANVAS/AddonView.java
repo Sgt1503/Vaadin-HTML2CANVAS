@@ -1,15 +1,17 @@
-# Vaadin Add-on html2canvas project
+package org.vaadin.HTMLtoCANVAS;
 
-### Deployment
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.router.Route;
 
-Starting the test/demo server:
-```
-mvn jetty:run
-```
-This deploys demo at http://localhost:8080
- 
-### Demo
-    class Testview{
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+@Route("")
+public class AddonView extends Div {
+
+    public AddonView() {
         Button button = new Button("Click here");
         button.addClickListener(l -> {
             CompletableFuture<String> completableFuture = HTML2CANVAS.takeScreenShot(button.getElement());
@@ -23,3 +25,4 @@ This deploys demo at http://localhost:8080
         });
         add(button);
     }
+}
