@@ -4,23 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.vaadin.addons</groupId>
-    <artifactId>addon-flow</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <name>Add-on for Vaadin</name>
-    <description>###Project Name###</description>
+    <groupId>org.vaadin.addons.HTMLtoCANVAS</groupId>
+    <artifactId>HTMLtoCANVAS</artifactId>
+    <version>1.0.0</version>
+    <name>HTMLtoCANVAS</name>
+    <description>A vaadin addon for HTML2CANVAS library </description>
 
     <properties>
-        <vaadin.version>23.1.1</vaadin.version>
-
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <vaadin.version>14.8.6</vaadin.version>
+        <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8
-        </project.reporting.outputEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <organization>
-        <name>###author###</name>
+        <name>Sgt1503</name>
     </organization>
     <licenses>
         <license>
@@ -178,12 +177,12 @@
                 <vaadin.productionMode>true</vaadin.productionMode>
             </properties>
 
-            <dependencies>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-server-production-mode</artifactId>
-                </dependency>
-            </dependencies>
+            <!--            <dependencies>-->
+            <!--                <dependency>-->
+            <!--                    <groupId>com.vaadin</groupId>-->
+            <!--                    <artifactId>flow-server-production-mode</artifactId>-->
+            <!--                </dependency>-->
+            <!--            </dependencies>-->
 
             <build>
                 <plugins>
@@ -254,7 +253,6 @@
                         </executions>
                         <configuration>
                             <quiet>true</quiet>
-                            <additionalparam>-Xdoclint:none</additionalparam>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -312,25 +310,6 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
                             <skip>true</skip>
-                        </configuration>
-                    </plugin>
-
-                    <!-- Runs the integration tests (*IT) after the server is started -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <trimStackTrace>false</trimStackTrace>
-                            <enableAssertions>true</enableAssertions>
                         </configuration>
                     </plugin>
                 </plugins>
