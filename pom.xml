@@ -6,7 +6,7 @@
 
     <groupId>org.vaadin.addons.HTMLtoCANVAS</groupId>
     <artifactId>HTMLtoCANVAS</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
     <name>HTMLtoCANVAS</name>
     <description>A vaadin addon for HTML2CANVAS library </description>
 
