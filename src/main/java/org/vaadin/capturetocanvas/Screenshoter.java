@@ -19,11 +19,19 @@ public class Screenshoter {
                 "   blobValue = canvas.toDataURL();\n" +
                 "   element.dispatchEvent(new Event('blobReady'));\n" +
                 "}\n" +
-                "capture().then((canvas) => send(canvas));", e);
+                "capture().then(\n" +
+                "result => send(result),\n" +
+                "error => {element.dispatchEvent(new Event('noBlob'));\nconsole.log(error);});", e);
         DomListenerRegistration blobReady = e.addEventListener("blobReady", l -> {
             Util.getJavaScriptReturn(e.getNode(), "blobValue.valueOf()").then(jsonValue -> future.complete(jsonValue.asString()));
         });
-        future.thenRun(() -> blobReady.remove());
+        DomListenerRegistration noBlob = e.addEventListener("noBlob", l -> {
+            future.completeExceptionally(new Error("No permit to screenshot"));
+        });
+        future.thenRun(() -> {
+            blobReady.remove();
+            noBlob.remove();
+        });
         return future;
     }
 }
